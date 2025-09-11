@@ -25,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/Simon-FOS/Sidasoft-Tech/issues"
   },
-  "homepage": "https://github.com/Simon-FOS/Sidasoft-Tech#readme"
+  "homepage": "https://github.com/Simon-FOS/Sidasoft-Tech#readme",
+  "dependencies": {
+    "@nathius262/nexusjs": "^0.0.17",
+    "i": "^0.3.7",
+    "npm": "^11.6.0"
+  }
 }
