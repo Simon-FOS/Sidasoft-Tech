@@ -10,7 +10,6 @@ import staticFiles from "./src/config/staticFiles.js";
 import configureViewEngine from './src/config/viewEngine.js';
 import eventLogger from './src/middlewares/logger.middleware.js';
 import conditionalRendering from './src/middlewares/conditionalRender.middleware.js';
-import { adminAuthMiddleware } from './src/middlewares/adminAuth.middleware.js';
 
 // Resolve __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -34,8 +33,6 @@ app.use(bodyParser.json());
 // Static files
 app.use(staticFiles);
 
-//confirm admin previlege for routes that begins with /admin...
-app.use(adminAuthMiddleware);
 
 
 //render header and footer section based on root or admin route
