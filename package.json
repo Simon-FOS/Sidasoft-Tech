@@ -1,0 +1,23 @@
+{
+  "name": "sidasoft-tech",
+  "version": "1.0.0",
+  "description": "A comprehensive, web-based platform designed to create an integrated environment for learning, service delivery, and community engagement. This system facilitates course management, service access, and progress tracking for students, while providing powerful tools for instructors and administrators.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simon-FOS/Sidasoft-Tech.git"
+  },
+  "author": "Simon-FOS",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Simon-FOS/Sidasoft-Tech/issues"
+  },
+  "homepage": "https://github.com/Simon-FOS/Sidasoft-Tech#readme",
+  "dependencies": {
+    "@nathius262/nexusjs": "^0.0.18"
+  }
+}
