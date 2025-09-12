@@ -4,7 +4,8 @@
   "description": "A comprehensive, web-based platform designed to create an integrated environment for learning, service delivery, and community engagement. This system facilitates course management, service access, and progress tracking for students, while providing powerful tools for instructors and administrators.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,13 @@
   },
   "homepage": "https://github.com/Simon-FOS/Sidasoft-Tech#readme",
   "dependencies": {
-    "@nathius262/nexusjs": "^0.0.18"
+    "@nathius262/nexusjs": "^0.0.19",
+    "nodemailer": "^7.0.6",
+    "truncate-html": "^1.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   }
 }
