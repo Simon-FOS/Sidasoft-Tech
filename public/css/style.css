@@ -138,3 +138,62 @@ footer {
 .accent-gold {
     color: var(--tech-gold);
 }
+
+.login-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+}
+
+.btn-outline-primary {
+    color: var(--tech-blue);
+    border-color: var(--tech-blue);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+    background-color: var(--tech-blue);
+    color: white;
+}
+
+.form-control {
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    border-color: var(--tech-blue);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+}
+
+.btn-primary {
+    background-color: var(--tech-blue);
+    border-color: var(--tech-blue);
+    padding: 0.8rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--tech-dark-blue);
+    border-color: var(--tech-dark-blue);
+}
+
+.accent-gold {
+    color: var(--tech-gold);
+}
+
+.role-heading {
+    color: var(--tech-dark-blue);
+}

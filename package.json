@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Simon-FOS/Sidasoft-Tech#readme",
   "dependencies": {
-    "@nathius262/nexusjs": "^0.0.19",
+    "@nathius262/nexusjs": "^0.0.20",
     "nodemailer": "^7.0.6",
     "truncate-html": "^1.2.2"
   },

@@ -1,8 +1,9 @@
 <main class="py-5 my-5">
-  <div class="container" style="max-width:500px; margin:auto; padding:2rem;">
+  <div class="login-container">
     <!-- Logo -->
     <div class="text-center mb-4">
-      <img width="150" src="/assets/images/logo.png" alt="Petra ICT Hub">
+      <i class="fas fa-laptop-code fa-3x mb-2" style="color: #1896da;"></i>
+      <h3 class="mb-0">SIDASOFT TECHNOLOGIES</h3>
     </div>
 
     <!-- Role Toggle -->
@@ -13,35 +14,82 @@
     </div>
 
     <!-- Heading -->
-    <h2 style="color:#105341; text-align:center;">Welcome Back <span id="roleHeading">Admin</span>!</h2>
+    <h2 class="text-center mb-4 role-heading">Welcome Back <span id="roleHeading">Admin</span>!</h2>
 
     <!-- Form -->
     <form id="authForm" class="needs-validation" action="/auth/admin/login" method="POST" novalidate>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <div class="invalid-feedback">Email is required</div>
+      <div class="form-group mb-3">
+        <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+        <div class="invalid-feedback">Email is required</div>
+      </div>
 
       <div class="form-group mb-3" style="position: relative;">
-        <input type="password" name="password" class="form-control-user" placeholder="Password" required>
-        <i class="fa-regular fa-eye"></i>
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
+        <i class="fa-regular fa-eye password-toggle"></i>
         <div class="invalid-feedback">Password is required</div>
       </div>
 
       <ul id="error" class="text-danger col-12 mb-3"></ul>
 
-      <div class="spinner-border col-12 d-none" id="status" role="status">
-        <span class="sr-only">Loading...</span>
+      <div class="d-flex justify-content-center mb-3">
+        <div class="spinner-border text-primary d-none" id="status" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
 
-      <button type="submit" id="btn">Login</button>
+      <button type="submit" class="btn btn-primary w-100" id="btn">Login</button>
     </form>
 
     <div class="text-center mt-3">
-      <a class="small" href="/auth/forgot-password">Forgot Password?</a>
+      <a class="small text-decoration-none" href="/auth/forgot-password">Forgot Password?</a>
     </div>
     <div class="text-center">
-      <a class="small" id="registerLink" href="/auth/register">Create an Account!</a>
+      <a class="small text-decoration-none" id="registerLink" href="/auth/register">Create an Account!</a>
     </div>
   </div>
 
-  <script type="module" src="/assets/js/authenticate.js"></script>
+  <script>
+    // Role toggle functionality
+    document.querySelectorAll('.role-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        // Remove active class from all buttons
+        document.querySelectorAll('.role-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+
+        // Add active class to clicked button
+        this.classList.add('active');
+
+        // Update role heading
+        document.getElementById('roleHeading').textContent = this.textContent;
+
+        // Update form action based on role
+        const role = this.getAttribute('data-role');
+        document.getElementById('authForm').action = `/auth/${role}/login`;
+      });
+    });
+
+    // Password visibility toggle
+    document.querySelector('.password-toggle').addEventListener('click', function () {
+      const passwordInput = document.querySelector('input[name="password"]');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        this.classList.remove('fa-eye');
+        this.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        this.classList.remove('fa-eye-slash');
+        this.classList.add('fa-eye');
+      }
+    });
+
+    // Form validation
+    document.getElementById('authForm').addEventListener('submit', function (event) {
+      if (!this.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      this.classList.add('was-validated');
+    });
+  </script>
 </main>
