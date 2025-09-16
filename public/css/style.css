@@ -1,4 +1,4 @@
-/* Custom CSS for SIDASOFT Technologies */
+/* Custom CSS */
 :root {
     --primary-blue: #004B91;
     --secondary-teal: #318188;
@@ -47,25 +47,7 @@ body {
     font-weight: 600 !important;
 }
 
-.btn-primary {
-    background-color: var(--tech-blue);
-    border-color: var(--tech-blue);
-}
 
-.btn-primary:hover {
-    background-color: var(--tech-dark-blue);
-    border-color: var(--tech-dark-blue);
-}
-
-.btn-outline-primary {
-    color: var(--tech-blue);
-    border-color: var(--tech-blue);
-}
-
-.btn-outline-primary:hover {
-    background-color: var(--tech-blue);
-    color: white;
-}
 
 .hero-section {
     background: linear-gradient(rgba(13, 110, 253, 0.8), rgba(13, 110, 253, 0.9)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
@@ -73,6 +55,119 @@ body {
     background-position: center;
     padding: 7rem 0;
     color: white;
+}
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-teal) 100%);
+    color: white;
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-image {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero .row {
+    min-height: 80vh;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.intro {
+    position: relative;
+    overflow: hidden;
+}
+
+.intro .bg-image {
+    background-image: url('https://source.unsplash.com/1600x900/?technology,computer');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.intro .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    /* dark overlay */
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+.intro .container {
+    position: relative;
+    z-index: 3;
+}
+
+.intro h2,
+.intro p {
+    color: #fff;
+    /* white text for visibility */
+}
+
+@media (max-width: 992px) {
+    .hero .row {
+        min-height: auto;
+    }
+
+    .hero-image {
+        height: 400px;
+        margin-top: 30px;
+    }
+}
+
+.btn-primary {
+    background-color: var(--accent-yellow) !important;
+    border-color: var(--accent-yellow) !important;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 25px;
+}
+
+.btn-primary:hover {
+    background-color: #d69c15;
+    border-color: #d69c15;
+    color: #333;
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Introduction Section */
+.intro {
+    background-color: #f6f33178;
+}
+
+/* Courses Section */
+.course-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.course-icon {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
 }
 
 .section-title {
