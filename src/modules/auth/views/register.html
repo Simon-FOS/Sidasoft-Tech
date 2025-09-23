@@ -1,21 +1,148 @@
+<style>
+  .containerx {
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem;
+    background: rgb(243, 189, 189);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+  }
+
+  .text-center img {
+    transition: transform 0.3s ease;
+  }
+
+  .text-center img:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-group {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-outline-success {
+    border-color: #0974cb;
+    color: #0974cb;
+    padding: 0.7rem;
+    font-weight: 500;
+  }
+
+  .btn-outline-success.active,
+  .btn-outline-success:hover {
+    background-color: #105341;
+    color: rgb(14, 102, 185);
+  }
+
+  h2 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #1949a3;
+    box-shadow: 0 0 0 0.2rem rgba(16, 83, 65, 0.25);
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+  }
+
+  .invalid-feedback {
+    color: #dc3545;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+
+  #error {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  #btn {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #0550b1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+  }
+
+  #btn:hover {
+    background-color: #08449e;
+    transform: translateY(-2px);
+  }
+
+  .small {
+    color: #054b95;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .small:hover {
+    color: #2d4ce8;
+    text-decoration: underline;
+  }
+
+  .spinner-border {
+    color: #0a8ae6;
+  }
+
+  @media (max-width: 576px) {
+    .container {
+      padding: 1.5rem;
+      margin: 0 15px;
+    }
+
+    body {
+      padding: 15px;
+    }
+  }
+</style>
 <main class="py-5 my-5">
-  <div class="container" style="max-width:500px; margin:auto; padding:2rem;">
+  <div class="containerx" style="max-width:500px; margin:auto; padding:2rem;">
     <!-- Logo -->
     <div class="text-center mb-4">
-      <img width="150" src="/assets/images/logo.png" alt="Petra ICT Hub">
+      <img width="150" src="/assets/image/logo.png" alt="Sidasoft Technologies">
     </div>
 
     <!-- Role Toggle -->
     <div class="btn-group mb-4 w-100 d-flex justify-content-center" role="group" aria-label="Role toggle">
-      <button type="button" class="btn btn-outline-success role-btn active" data-role="student">Student</button>
-      <button type="button" class="btn btn-outline-success role-btn" data-role="instructor">Instructor</button>
+      <button type="button" class="btn btn-outline-success role-btn active" data-role="user">User</button>
+      <button type="button" class="btn btn-outline-success role-btn" data-role="staff">Staff</button>
     </div>
 
     <!-- Heading -->
-    <h2 style="color:#105341; text-align:center;">Register as <span id="roleHeading">Student</span></h2>
+    <h2 style="color:#0545ad; text-align:center;">Register as <span id="roleHeading">Student</span></h2>
 
     <!-- Form -->
-    <form id="authForm" class="needs-validation" action="/auth/student/register" method="POST" novalidate>
+    <form id="authForm" class="needs-validation" action="/auth/user/register" method="POST" novalidate>
       <input type="text" name="first_name" placeholder="First Name" required>
       <div class="invalid-feedback">First name is required</div>
 
@@ -24,6 +151,9 @@
 
       <input type="email" name="email" placeholder="Email Address" required>
       <div class="invalid-feedback">Email is required</div>
+
+      <input type="tel" name="phone_number" placeholder="Phone number" required>
+      <div class="invalid-feedback">Phone number is required</div>
 
       <div class="form-group mb-3" style="position: relative;">
         <input type="password" name="password" placeholder="Password" required>
@@ -51,5 +181,44 @@
     </div>
   </div>
 
-  <script type="module" src="/assets/js/authenticate.js"></script>
+  <script>
+    // Password visibility toggle
+    document.querySelectorAll('.fa-eye').forEach(icon => {
+      icon.addEventListener('click', function () {
+        const input = this.previousElementSibling;
+        if (input.type === 'password') {
+          input.type = 'text';
+          this.classList.remove('fa-eye');
+          this.classList.add('fa-eye-slash');
+        } else {
+          input.type = 'password';
+          this.classList.remove('fa-eye-slash');
+          this.classList.add('fa-eye');
+        }
+      });
+    });
+
+    // Role toggle functionality
+    document.querySelectorAll('.role-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        // Remove active class from all buttons
+        document.querySelectorAll('.role-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+
+        // Add active class to clicked button
+        this.classList.add('active');
+
+        // Update role heading
+        const role = this.getAttribute('data-role');
+        const roleText = role === 'user' ? 'Student' : 'Staff';
+        document.getElementById('roleHeading').textContent = roleText;
+
+        // Update form action based on role
+        document.getElementById('authForm').action = `/auth/${role}/register`;
+      });
+    });
+  </script>
 </main>
+
+<script type="module" src="/assets/js/authenticate.js"></script>

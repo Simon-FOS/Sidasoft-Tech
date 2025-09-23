@@ -1,7 +1,7 @@
 import express from 'express';
 import * as controller from '../controllers/Auth.controller.js';
 import moduleView from '../../../middlewares/moduleViews.js';
-import {requireAuthOrRedirectCookie, authenticate} from '../../../middlewares/auth.middleware.js';
+import { requireAuthOrRedirectCookie, authenticate } from '../../../middlewares/auth.middleware.js';
 
 const router = express.Router();
 

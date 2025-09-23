@@ -31,7 +31,7 @@ export const generateToken = (user, role) => {
 };
 
 // ---------- Generic Registration ----------
-export const registerUserService = async ({ first_name, last_name, email, password, bio }, role) => {
+export const registerUserService = async ({ first_name, last_name, email, password, bio, phone_number }, role) => {
   const existingUser = await db.User.findOne({ where: { email } });
   if (existingUser) throw new Error('Email already registered');
 
@@ -41,6 +41,7 @@ export const registerUserService = async ({ first_name, last_name, email, passwo
     first_name,
     last_name,
     email,
+    phone_number,
     password: hashedPassword,
     bio,
     avatar_url: '/assets/img/profile.png',
@@ -65,7 +66,7 @@ export const loginUserService = async ({ email, password }, role) => {
   // Fetch user with all roles
   const user = await db.User.findOne({
     where: { email },
-    include: { 
+    include: {
       model: db.Role,
       as: 'roles',
       attributes: ['id', 'name'],
