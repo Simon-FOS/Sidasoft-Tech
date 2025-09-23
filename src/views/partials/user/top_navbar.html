@@ -1,0 +1,36 @@
+<!-- Top Bar -->
+<div class="top-bar d-flex justify-content-between align-items-center">
+    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="d-flex align-items-center">
+        <div class="dropdown me-4">
+            <a class="dropdown-toggle text-dark" href="#" role="button" id="notificationDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-bell fa-lg"></i>
+                <span class="badge bg-danger rounded-pill">3</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                <li><a class="dropdown-item" href="#">New student registered</a></li>
+                <li><a class="dropdown-item" href="#">Course completion request</a></li>
+                <li><a class="dropdown-item" href="#">New message received</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <a class="dropdown-toggle d-flex align-items-center text-dark text-decoration-none" href="#" role="button"
+                id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="Admin"
+                    width="32" height="32" class="rounded-circle me-2">
+                <span>Admin User</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

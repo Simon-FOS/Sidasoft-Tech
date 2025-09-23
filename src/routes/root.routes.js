@@ -16,7 +16,12 @@ router.get('/about', about_view);
 router.get('/contact', contact_view)
 router.get('/privacy-policy', privacy_policy)
 router.get('/terms-of-service', terms_of_service)
-router.get('/admin', dashboard_view)
+
+router.get('/admin', (req, res) => {
+    res.status(301).redirect('/admin/dashboard');
+});
+router.get('/admin/dashboard', dashboard_view);
+
 
 
 export default router;
