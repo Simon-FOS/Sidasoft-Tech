@@ -7,7 +7,7 @@ export const findAll = async (req, res) => {
     const { data, totalPages } = await service.findAll({ limit, offset });
 
     res.render('./product_list', {
-      users:data,
+      users: data,
       currentPage: page,
       totalPages,
       pageTitle: 'Users List',
@@ -20,10 +20,26 @@ export const findAll = async (req, res) => {
 export const findById = async (req, res) => {
   try {
     const data = await service.findById(req.params.id);
-    res.status(200).render('./product_single', {
+    res.status(200).render('./user_profile', {
       success: true,
-      pageTitle: "Details",
-      user: [data],
+      pageTitle: "profile",
+      layout: 'user',
+      user: data,
+    });
+  } catch (err) {
+    res.status(404).render('error', { error: err.message });
+  }
+};
+
+
+export const dashboard = async (req, res) => {
+  try {
+    // const data = await service.findById(req.params.id);
+    res.status(200).render('./user_dashboard', {
+      success: true,
+      layout: 'user',
+      pageTitle: "Dashboard",
+      // user: [data],
     });
   } catch (err) {
     res.status(404).render('error', { error: err.message });

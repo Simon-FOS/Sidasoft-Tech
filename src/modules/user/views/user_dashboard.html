@@ -1,0 +1,217 @@
+<!-- Dashboard Stats -->
+<div class="row mb-4">
+
+
+    <div class="col-md-3 col-sm-6 mb-3">
+        <div class="dashboard-card stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="stat-number">68</div>
+            <div class="stat-label">Courses</div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <div class="dashboard-card stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-arrow-trend-up"></i>
+            </div>
+            <div class="stat-number">38%</div>
+            <div class="stat-label"> My Progress</div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <div class="dashboard-card stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="stat-number">2</div>
+            <div class="stat-label"> Active Courses</div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <div class="dashboard-card stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-certificate"></i>
+            </div>
+            <div class="stat-number">1</div>
+            <div class="stat-label"> Active Courses</div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row mb-4">
+    <div class="col-lg-8 mb-3">
+        <div class="chart-container">
+            <h5 class="mb-3">Student Enrollment Trend</h5>
+            <canvas id="enrollmentChart"></canvas>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-3">
+        <div class="chart-container">
+            <h5 class="mb-3">Course Categories</h5>
+            <canvas id="categoryChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activities & Top Courses -->
+<div class="row mb-4">
+    <div class="col-lg-6 mb-3">
+        <div class="chart-container">
+            <h5 class="mb-3">Recent Activities</h5>
+            <div class="list-group">
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="mb-1">New student registration</h6>
+                        <p class="mb-0 small">John Doe registered for Web Development course</p>
+                    </div>
+                    <small class="text-muted">10 mins ago</small>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="mb-1">Course completion</h6>
+                        <p class="mb-0 small">Sarah Smith completed Data Science course</p>
+                    </div>
+                    <small class="text-muted">2 hours ago</small>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="mb-1">New course added</h6>
+                        <p class="mb-0 small">Instructor added new Cloud Computing course</p>
+                    </div>
+                    <small class="text-muted">5 hours ago</small>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="mb-1">Payment received</h6>
+                        <p class="mb-0 small">Payment of $299 received from Michael Brown</p>
+                    </div>
+                    <small class="text-muted">1 day ago</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-3">
+        <div class="chart-container">
+            <h5 class="mb-3">Top Courses</h5>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Enrollments</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Full Stack Web Development</td>
+                            <td>245</td>
+                            <td><span class="badge badge-success">4.8</span></td>
+                        </tr>
+                        <tr>
+                            <td>Data Science & Machine Learning</td>
+                            <td>198</td>
+                            <td><span class="badge badge-success">4.9</span></td>
+                        </tr>
+                        <tr>
+                            <td>iOS & Android App Development</td>
+                            <td>176</td>
+                            <td><span class="badge badge-success">4.7</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cloud Computing with AWS</td>
+                            <td>152</td>
+                            <td><span class="badge badge-warning">4.5</span></td>
+                        </tr>
+                        <tr>
+                            <td>UI/UX Design Principles</td>
+                            <td>138</td>
+                            <td><span class="badge badge-warning">4.4</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Students -->
+<div class="row">
+    <div class="col-12">
+        <div class="chart-container">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Recent Students</h5>
+                <a href="#" class="btn btn-sm btn-primary">View All</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover custom-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                            <th>Enrollment Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>Web Development</td>
+                            <td>2023-10-15</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sarah Smith</td>
+                            <td>sarah@example.com</td>
+                            <td>Data Science</td>
+                            <td>2023-10-12</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Michael Brown</td>
+                            <td>michael@example.com</td>
+                            <td>App Development</td>
+                            <td>2023-10-10</td>
+                            <td><span class="badge bg-warning">Pending</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Emily Johnson</td>
+                            <td>emily@example.com</td>
+                            <td>Cloud Computing</td>
+                            <td>2023-10-08</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>David Wilson</td>
+                            <td>david@example.com</td>
+                            <td>UI/UX Design</td>
+                            <td>2023-10-05</td>
+                            <td><span class="badge bg-danger">Inactive</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

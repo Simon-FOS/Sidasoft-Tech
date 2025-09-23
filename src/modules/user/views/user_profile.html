@@ -1,0 +1,301 @@
+<main class="profile-main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-12 ms-sm-auto px-md-4 main-content">
+
+                <!-- Profile Header -->
+                <div class="profile-header card mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center">
+                                <div class="profile-image-container mb-3">
+                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff&size=150"
+                                        alt="Profile" class="rounded-circle profile-image">
+                                    <button class="btn btn-sm btn-primary change-image-btn">
+                                        <i class="fas fa-camera"></i>
+                                    </button>
+                                </div>
+                                <h4>John Doe</h4>
+                                <p class="text-muted">Web Development Student</p>
+                                <div class="badge bg-success">Active</div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row stats-row">
+                                    <div class="col-4 text-center">
+                                        <div class="stat-number">12</div>
+                                        <div class="stat-label">Courses</div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <div class="stat-number">8</div>
+                                        <div class="stat-label">Completed</div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <div class="stat-number">92%</div>
+                                        <div class="stat-label">Progress</div>
+                                    </div>
+                                </div>
+                                <div class="progress mt-4 mb-3" style="height: 10px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 92%;" aria-valuenow="92"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mb-0">Latest achievement: <strong>Advanced JavaScript Certificate</strong> -
+                                    Earned on Oct 15, 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Personal Information -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Personal Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="fullName" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="fullName" value="John Doe">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email"
+                                            value="john.doe@example.com">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="bio" class="form-label">Bio</label>
+                                        <textarea class="form-control" id="bio"
+                                            rows="3">Passionate web developer with interest in React and Node.js. Currently learning advanced JavaScript concepts.</textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Update Information</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Settings -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Account Settings</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <h6>Change Password</h6>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="currentPassword" class="form-label">Current Password</label>
+                                            <input type="password" class="form-control" id="currentPassword">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="newPassword" class="form-label">New Password</label>
+                                            <input type="password" class="form-control" id="newPassword">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                                            <input type="password" class="form-control" id="confirmPassword">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update Password</button>
+                                    </form>
+                                </div>
+                                <hr>
+                                <div>
+                                    <h6>Notification Preferences</h6>
+                                    <div class="form-check form-switch mb-2">
+                                        <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                        <label class="form-check-label" for="emailNotifications">Email
+                                            Notifications</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-2">
+                                        <input class="form-check-input" type="checkbox" id="courseUpdates" checked>
+                                        <label class="form-check-label" for="courseUpdates">Course Updates</label>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="promotionalEmails">
+                                        <label class="form-check-label" for="promotionalEmails">Promotional
+                                            Emails</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="col-12 mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Recent Activity</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Completed "JavaScript Advanced Concepts"</h6>
+                                            <p class="mb-0 small">Scored 95% on the final assessment</p>
+                                        </div>
+                                        <small class="text-muted">2 hours ago</small>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Submitted assignment for "React Fundamentals"</h6>
+                                            <p class="mb-0 small">Waiting for instructor review</p>
+                                        </div>
+                                        <small class="text-muted">1 day ago</small>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Enrolled in "Node.js Backend Development"</h6>
+                                            <p class="mb-0 small">New course added to your learning path</p>
+                                        </div>
+                                        <small class="text-muted">3 days ago</small>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Earned "Web Development Basics" certificate</h6>
+                                            <p class="mb-0 small">Completed with excellence</p>
+                                        </div>
+                                        <small class="text-muted">1 week ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        :root {
+            --tech-blue: #0d6efd;
+            --tech-dark-blue: #084298;
+            --tech-gold: #ffc107;
+            --tech-light: #f8f9fa;
+            --tech-dark: #212529;
+        }
+
+        .profile-main {
+            background-color: #f5f7fb;
+            min-height: 100vh;
+        }
+
+
+
+        /* Content */
+        .main-content {
+
+            min-height: 100vh;
+            transition: all 0.3s;
+            padding: 20px;
+        }
+
+
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-header {
+            overflow: hidden;
+        }
+
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .change-image-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stats-row {
+            padding: 1rem 0;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--tech-blue);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .progress {
+            border-radius: 20px;
+        }
+
+        .progress-bar {
+            background-color: var(--tech-blue);
+            border-radius: 20px;
+        }
+
+        /* Form elements */
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+
+            .main-content {
+                width: 100%;
+                margin-left: 0;
+            }
+
+
+
+            .main-content.active {
+                width: calc(100% - 250px);
+
+            }
+
+            .profile-header .row>div {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+
+    <script>
+        // Sidebar toggle
+        document.getElementById('sidebarCollapse').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.querySelector('.main-content').classList.toggle('active');
+        });
+
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+    </script>
+</main>
