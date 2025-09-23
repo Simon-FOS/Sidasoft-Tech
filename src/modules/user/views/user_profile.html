@@ -10,14 +10,13 @@
                         <div class="row align-items-center">
                             <div class="col-md-3 text-center">
                                 <div class="profile-image-container mb-3">
-                                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff&size=150"
-                                        alt="Profile" class="rounded-circle profile-image">
+                                    <img src="{{user.avatar_url}}" alt="Profile" class="rounded-circle profile-image">
                                     <button class="btn btn-sm btn-primary change-image-btn">
                                         <i class="fas fa-camera"></i>
                                     </button>
                                 </div>
-                                <h4>John Doe</h4>
-                                <p class="text-muted">Web Development Student</p>
+                                <h4>{{user.first_name}} {{user/last_name}}</h4>
+                                <p class="text-muted">{{user.email}}</p>
                                 <div class="badge bg-success">Active</div>
                             </div>
                             <div class="col-md-9">
@@ -54,27 +53,84 @@
                                 <h5 class="card-title mb-0">Personal Information</h5>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form id="update-profile-form" class="was-validated" novalidate method="post"
+                                    action="/user/{{user.id}}">
                                     <div class="mb-3">
-                                        <label for="fullName" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="fullName" value="John Doe">
+                                        <label for="first_name" class="form-label">First Name</label>
+                                        <input name="first_name" type="text" class="form-control" id="fullName"
+                                            value="{{user.first_name}}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="last_name" class="form-label">Last Name</label>
+                                        <input name="last_name" type="text" class="form-control" id="fullName"
+                                            value="{{user.last_name}}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="email"
-                                            value="john.doe@example.com">
+                                        <input name="email" type="email" class="form-control" id="email"
+                                            value="{{user.email}}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone Number</label>
-                                        <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567">
+                                        <input name="phone_number" type="tel" class="form-control" id="phone"
+                                            value="{{user.phone_number}}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="bio" class="form-label">Bio</label>
-                                        <textarea class="form-control" id="bio"
-                                            rows="3">Passionate web developer with interest in React and Node.js. Currently learning advanced JavaScript concepts.</textarea>
+                                        <textarea name="bio" class="form-control" id="bio"
+                                            rows="3">{{user.bio}}</textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Update Information</button>
+                                    <div id="error" class="text-danger d-none"></div>
+
+                                    <button type="submit" id="btn" class="btn btn-primary">Update Information</button>
                                 </form>
+                                <script>
+                                    const form = document.getElementById('update-profile-form');
+                                    const btn = document.getElementById('btn');
+                                    const error_div = document.getElementById('error');
+
+                                    form.addEventListener('submit', async (event) => {
+                                        event.preventDefault(); // corrected from e.preventDefault()
+
+                                        btn.innerHTML = 'Updating...';
+                                        btn.disabled = true;
+
+                                        const formData = new FormData(form);
+                                        const data = Object.fromEntries(formData.entries());
+
+                                        try {
+                                            const response = await fetch(form.action, {
+                                                method: 'PUT',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                    'Accept': 'application/json'
+                                                },
+                                                body: JSON.stringify(data)
+                                            });
+
+                                            const result = await response.json();
+
+                                            if (response.ok) {
+                                                btn.innerHTML = 'Updated ✅';
+                                                // reset button after 2 seconds
+                                                setTimeout(() => {
+                                                    btn.innerHTML = 'Update Profile';
+                                                    btn.disabled = false;
+                                                }, 2000);
+                                            } else {
+                                                error_div.innerHTML = result.message || 'Update failed. Please try again.';
+                                                btn.innerHTML = 'Update Profile';
+                                                btn.disabled = false;
+                                            }
+                                        } catch (error) {
+                                            error_div.classList.remove('d-none');
+                                            error_div.innerHTML = 'Something went wrong. Please try again later.';
+                                            btn.innerHTML = 'Update Profile';
+                                            btn.disabled = false;
+                                            console.error(error);
+                                        }
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
