@@ -117,6 +117,9 @@
                                                     btn.innerHTML = 'Update Profile';
                                                     btn.disabled = false;
                                                 }, 2000);
+                                                if (result.redirectTo) {
+                                                    window.location.href = result.redirectTo;
+                                                }
                                             } else {
                                                 error_div.innerHTML = result.message || 'Update failed. Please try again.';
                                                 btn.innerHTML = 'Update Profile';
