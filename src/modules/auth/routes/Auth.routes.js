@@ -17,12 +17,12 @@ router.get('/logout', controller.logoutUser);
 //Render Views
 router.get("/forgot-password", controller.forgotPasswordView);
 router.get("/reset-password", controller.resetPasswordView);
-router.get("/change-password", requireAuthOrRedirectCookie, authenticate, controller.changePasswordView);
+router.get("/change-password", authenticate, controller.changePasswordView);
 
 // Handle Forgot Password
 router.post("/forgot-password", controller.forgotPassword);
 router.post("/verify-otp", controller.verifyOTP);
-router.post("/change-password", requireAuthOrRedirectCookie, authenticate, controller.changePassword);
+router.post("/change-password", authenticate, controller.changePassword);
 
 
 // ---------- Admin ----------

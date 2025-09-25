@@ -79,14 +79,14 @@ export const attachUser = (req, res, next) => {
 };
 
 export const requireAuthOrRedirectCookie = (req, res, next) => {
-  if (!req.user.is_authenticated) {
-    // Store the page they’re trying to view
-    res.cookie('redirect_after_auth', req.originalUrl, {
-      httpOnly: true,
-      maxAge: 10 * 60 * 1000, // 5 min window
-      sameSite: 'Strict',
-      secure: process.env.NODE_ENV === 'production',
-    });
-  }
+
+  // Store the page they’re trying to view
+  res.cookie('redirect_after_auth', req.originalUrl, {
+    httpOnly: true,
+    maxAge: 10 * 60 * 1000, // 5 min window
+    sameSite: 'Strict',
+    secure: process.env.NODE_ENV === 'production',
+  });
+
   next(); // continue regardless (don’t block access here)
 };

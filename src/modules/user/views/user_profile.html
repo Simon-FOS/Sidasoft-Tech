@@ -147,19 +147,19 @@
                             <div class="card-body">
                                 <div class="mb-4">
                                     <h6>Change Password</h6>
-                                    <form>
+                                    <form id="change-password-form" action="/auth/change-password" method="post"
+                                        class="was-validated" novalidate>
                                         <div class="mb-3">
                                             <label for="currentPassword" class="form-label">Current Password</label>
-                                            <input type="password" class="form-control" id="currentPassword">
+                                            <input name="oldPassword" type="password" class="form-control"
+                                                id="currentPassword">
                                         </div>
                                         <div class="mb-3">
                                             <label for="newPassword" class="form-label">New Password</label>
-                                            <input type="password" class="form-control" id="newPassword">
+                                            <input name="newPassword" type="password" class="form-control"
+                                                id="newPassword">
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="confirmPassword" class="form-label">Confirm New Password</label>
-                                            <input type="password" class="form-control" id="confirmPassword">
-                                        </div>
+
                                         <button type="submit" class="btn btn-primary">Update Password</button>
                                     </form>
                                 </div>

@@ -7,11 +7,11 @@ import bcrypt from 'bcryptjs';
 export const registerUser = async (req, res) => {
   try {
     const role = req.body.role;
-    const {token, user} = await registerUserService(req.body, role);
+    const { token, user } = await registerUserService(req.body, role);
     const redirectTo = req.cookies.redirect_after_auth || `/${role}`;
     res.clearCookie('redirect_after_auth');
 
-     // Optional: set HTTP-only cookie
+    // Optional: set HTTP-only cookie
     res.cookie('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
@@ -148,7 +148,9 @@ export const changePassword = async (req, res) => {
     const isMatch = await bcrypt.compare(oldPassword, user.password);
     if (!isMatch) {
       req.flash("error", "Old password is incorrect");
-      return res.redirect("/auth/change-password");
+      const redirectTo = req.cookies.redirect_after_auth;
+      res.clearCookie('redirect_after_auth');
+      return res.redirect(redirectTo || "/auth/change-password");
     }
 
     const hashed = await bcrypt.hash(newPassword, 10);
@@ -161,11 +163,15 @@ export const changePassword = async (req, res) => {
     });
 
     req.flash("success", "Password changed successfully");
-    return res.redirect("/auth/change-password");
+    const redirectTo = req.cookies.redirect_after_auth;
+    res.clearCookie('redirect_after_auth');
+    return res.redirect(redirectTo || "/auth/change-password");
   } catch (error) {
     console.log("Password change error", error);
     req.flash("error", error.message);
-    return res.redirect("/auth/change-password");
+    const redirectTo = req.cookies.redirect_after_auth;
+    res.clearCookie('redirect_after_auth');
+    return res.redirect(redirectTo || "/auth/change-password");
   }
 };
 
@@ -185,9 +191,9 @@ export const forgotPasswordView = (req, res) => {
 };
 
 export const resetPasswordView = (req, res) => {
-  res.render('reset-password', {pageTitle: "Reset Password"});
+  res.render('reset-password', { pageTitle: "Reset Password" });
 };
 
 export const changePasswordView = (req, res) => {
-  res.render('change-password', {pageTitle: "Change Password"});
+  res.render('change-password', { pageTitle: "Change Password" });
 };
