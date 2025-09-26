@@ -8,7 +8,7 @@ module.exports = {
     storage: './src/databases/db_test.sqlite', // Path to SQLite file
     dialect: 'sqlite',
     //logging: console.log,
-    
+
   },
   test: {
     username: null,
@@ -19,17 +19,17 @@ module.exports = {
   },
   production: {
     //IF YOUR HOSTING YOUR PROJECT ON VERCEL I'LL ADVICE TO USE URL BY UNCOMMENTING THE NEXT LINE
-    url:process.env.POSTGRES_URL,
+    url: process.env.POSTGRES_URL,
 
     //ELSE USE THIS CONFIG FOR OTHER PLATFORMS THAT REQUIRES THE FOLLOWING FIELDS
-    username:process.env.POSTGRES_USER, // Replace with your PostgreSQL username
-    password:process.env.POSTGRES_PASSWORD,   // Replace with your PostgreSQL password
+    username: process.env.POSTGRES_USER, // Replace with your PostgreSQL username
+    password: process.env.POSTGRES_PASSWORD,   // Replace with your PostgreSQL password
     database: process.env.POSTGRES_DATABASE,
-    host:process.env.POSTGRES_HOST, // Replace with your PostgreSQL host
-    port:process.env.POSTGRES_PORT,  // Make sure the port is correct
+    host: process.env.POSTGRES_HOST, // Replace with your PostgreSQL host
+    port: process.env.POSTGRES_PORT,  // Make sure the port is correct
 
 
-    dialect:process.env.POSTGRES_DIALECT,
+    dialect: process.env.POSTGRES_DIALECT,
     protocol: 'postgres',
     dialectOptions: {
       ssl: {
@@ -38,6 +38,12 @@ module.exports = {
       },
       connectTimeout: 60000,
     },
-    logging: false //console.log,    // Disable logging in production for performance
+    logging: false, //console.log,    // Disable logging in production for performance
+    pool: {
+      max: 5,           // Maximum number of connections in pool
+      min: 0,           // Minimum number of connections in pool  
+      idle: 10000       // The maximum time, in milliseconds, that a connection can be idle before being released
+    },
+
   }
 }; 
