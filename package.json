@@ -21,7 +21,8 @@
   "dependencies": {
     "@nathius262/nexusjs": "^0.0.20",
     "nodemailer": "^7.0.6",
-    "truncate-html": "^1.2.2"
+    "truncate-html": "^1.2.2",
+    "vercel": "^48.1.6"
   },
   "devDependencies": {
     "nodemon": "^3.1.10",
