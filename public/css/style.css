@@ -320,11 +320,6 @@ body {
     border-color: var(--tech-blue);
 }
 
-.btn-outline-primary:hover,
-.btn-outline-primary.active {
-    background-color: var(--tech-blue);
-    color: white;
-}
 
 .form-control {
     padding: 0.8rem 1rem;
