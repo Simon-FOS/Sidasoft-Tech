@@ -1,3 +1,4 @@
+require('pg'); // Ensure pg is loaded for PostgreSQL support
 const Sequelize = require('sequelize');
 const fs = require('fs');
 const path = require('path');
