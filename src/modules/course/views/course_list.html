@@ -1,0 +1,11 @@
+
+  <h1>Course List</h1>
+  <ul>
+    {{#each courses}}
+      <li>
+        <a href="/course/{{this.id}}">{{this.id}}</a>
+      </li>
+    {{/each}}
+  </ul>
+  {{> pagination}}
+  
