@@ -20,6 +20,8 @@
   "homepage": "https://github.com/Simon-FOS/Sidasoft-Tech#readme",
   "dependencies": {
     "@nathius262/nexusjs": "^0.0.20",
+    "multer": "^2.0.2",
+    "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^7.0.6",
     "pg": "^8.16.3",
     "truncate-html": "^1.2.2",
