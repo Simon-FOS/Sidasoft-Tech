@@ -61,13 +61,10 @@
                         <a href="/admin/course/{{this.id}}" class="btn btn-sm btn-outline-primary">
                           <i class="fas fa-edit"></i> Edit
                         </a>
-                        <form action="/admin/course/{{this.id}}" method="POST" style="display: inline;">
-                          <input type="hidden" name="_method" value="DELETE">
-                          <button type="submit" class="btn btn-sm btn-outline-danger"
-                            onclick="return confirm('Are you sure you want to delete this course?')">
-                            <i class="fas fa-trash"></i> Delete
-                          </button>
-                        </form>
+                        <button type="click" class="btn btn-sm btn-outline-danger" data-delete="course-{{this.id}}"
+                          data-name="{{this.title}}" data-url="/admin/course/{{this.id}}"> <i class="fas fa-trash"></i>
+                          Delete
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -223,9 +220,5 @@
       document.querySelector('.main-content').classList.toggle('active');
     });
 
-    // Delete confirmation
-    function confirmDelete(courseName) {
-      return confirm(`Are you sure you want to delete "${courseName}"? This action cannot be undone.`);
-    }
   </script>
 </main>
