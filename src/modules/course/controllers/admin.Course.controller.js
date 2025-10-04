@@ -6,6 +6,7 @@ export const findAll = async (req, res) => {
     const data = await service.findAll({ limit, offset });
     res.status(200).render('./admins/course_list', {
       success: true,
+      layout: "admin",
       pageTitle: "Admin",
       courses: data.courses,
       totalItems: data.totalItems,
