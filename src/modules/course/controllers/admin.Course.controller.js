@@ -44,7 +44,7 @@ export const create = async (req, res) => {
     }
 
     const data = await service.create(req.body);
-    res.status(201).json({ success: true, data });
+    res.status(201).json({ success: true, message: 'Created successfully', data, redirectTo: '/admin/course' });
   } catch (err) {
     console.log(err)
     res.status(500).json({ error: err });
