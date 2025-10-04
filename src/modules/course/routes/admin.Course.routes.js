@@ -23,7 +23,10 @@ router.post('/create',
 
 router.route('/:id')
   .get(controller.findById)
-  .put(controller.update)
+  .put(
+    setSection('courses'), // Middleware to set the section for dynamic folder creation
+    upload.array('image_url', 1), // Middleware to handle file upload, expecting field name 'image_url'
+    controller.update)
   .delete(controller.destroy);
 
 export default router;

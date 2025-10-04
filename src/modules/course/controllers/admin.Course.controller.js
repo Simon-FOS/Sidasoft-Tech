@@ -24,6 +24,7 @@ export const findById = async (req, res) => {
     const data = await service.findById(req.params.id);
     res.status(200).render('./admins/course_update', {
       success: true,
+      layout: "admin",
       pageTitle: "Update Record",
       course: data,
     });
@@ -54,8 +55,9 @@ export const create = async (req, res) => {
 
 export const update = async (req, res) => {
   try {
+
     const data = await service.update(req.params.id, req.body);
-    res.status(200).json({ success: true, data });
+    res.status(200).json({ success: true, message: 'Updated successfully', redirectTo: '/admin/course/' + req.params.id, });
   } catch (err) {
     console.log(err)
     res.status(500).json({ error: err });
