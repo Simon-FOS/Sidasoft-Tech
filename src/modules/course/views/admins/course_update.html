@@ -10,8 +10,12 @@
   <div class="col-12 mb-4">
     <!-- Approach -->
     <div class="card shadow mb-4">
-      <div class="card-header py-3">
+      <div class="card-header py-3 d-flex justify-content-between align-items-center">
         <h6 class="m-0 font-weight-bold text-primary">Update Course</h6>
+        <button type="click" class="btn btn-sm btn-outline-danger" data-delete="course-{{course.id}}"
+          data-name="{{course.title}}" data-url="/admin/course/{{course.id}}"> <i class="fas fa-trash"></i>
+          Delete
+        </button>
       </div>
       <div class="card-body">
         <form id="update-media" enctype="multipart/form-data" class="user needs-validation"
