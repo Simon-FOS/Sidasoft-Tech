@@ -1,5 +1,6 @@
 import { check, validationResult } from 'express-validator';
 import dotenv from 'dotenv';
+import * as courseService from '../modules/course/services/Course.service.js';
 
 // Derive the equivalent of __dirname
 import { fileURLToPath } from 'url';
@@ -15,11 +16,10 @@ const page_logo = process.env.PAGELOGO
 
 const index_view = async (req, res) => {
     try {
-
-
-        //console.log(result.rows)
+        const courses = await courseService.findAll({ limit: 3, offset: 0 });
         res.render('index', {
             pageTitle: "Home",
+            courses: courses.courses,
             pageLogo: page_logo
         });
     } catch (err) {
