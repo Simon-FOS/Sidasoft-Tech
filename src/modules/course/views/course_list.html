@@ -1,11 +1,41 @@
+<!-- Courses Section -->
+<section id="courses" class="py-5 bg-light">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="section-title d-inline-block">Our Courses</h2>
+      <p class="lead">Browse our most popular technology courses</p>
+    </div>
 
-  <h1>Course List</h1>
-  <ul>
-    {{#each courses}}
-      <li>
-        <a href="/course/{{this.id}}">{{this.id}}</a>
-      </li>
-    {{/each}}
-  </ul>
-  {{> pagination}}
-  
+    <div class="row g-4">
+      {{#each courses}}
+      <!-- Course {{this.id}} -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            class="card-img-top" alt="{{this.title}}">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge bg-primary">Beginner</span>
+              <span><i class="far fa-clock me-1"></i> {{this.duration}} weeks</span>
+
+            </div>
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">N{{this.price}}</span>
+              <span class="fw-bold text-primary">
+                <a href="/course/{{this.id}}" class="btn btn-sm btn-outline-primary">View Details</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+
+    <!--pagination-->
+
+  </div>
+</section>
