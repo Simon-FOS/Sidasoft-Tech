@@ -1,0 +1,214 @@
+<main class="category-list-main">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Main Content -->
+      <div class="px-md-4 main-content">
+
+        <!-- Page Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="page-title">Category Management</h1>
+          <a href="/admin/category/create" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i>Create New Category
+          </a>
+        </div>
+
+        <!-- Category List Table -->
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover custom-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Category Name</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each categories}}
+                  <tr>
+                    <td><strong>#{{this.id}}</strong></td>
+                    <td>
+                      <div class="d-flex align-items-center">
+
+                        <div>
+                          <h6 class="mb-0">{{this.name}}</h6>
+                          <small class="text-muted"></small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+
+                      <span class="badge bg-light text-dark">
+                        <i class="fas fa-naira me-1"></i>{{this.createdAt}} Naira
+                      </span>
+                    </td>
+
+                    <td>
+                      <div class="btn-group" role="group">
+                        <a href="/admin/category/{{this.id}}" class="btn btn-sm btn-outline-primary">
+                          <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <button type="click" class="btn btn-sm btn-outline-danger" data-delete="category-{{this.id}}"
+                          data-name="{{this.title}}" data-url="/admin/category/{{this.id}}"> <i
+                            class="fas fa-trash"></i>
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Category pagination" class="mt-4">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .category-list-main {
+      background-color: #f5f7fb;
+      min-height: 100vh;
+    }
+
+
+
+    /* Page Title */
+    .page-title {
+      color: var(--tech-dark-blue);
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
+    /* Cards */
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Tables */
+    .custom-table {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .custom-table th {
+      background: var(--tech-blue);
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-weight: 600;
+    }
+
+    .custom-table td {
+      border-color: #f1f1f1;
+      vertical-align: middle;
+      padding: 1rem;
+    }
+
+    .category-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--tech-blue);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+
+    /* Buttons */
+    .btn-primary {
+      background-color: var(--tech-blue);
+      border-color: var(--tech-blue);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--tech-dark-blue);
+      border-color: var(--tech-dark-blue);
+    }
+
+    /* Badges */
+    .badge {
+      font-weight: 500;
+    }
+
+    /* Pagination */
+    .page-item.active .page-link {
+      background-color: var(--tech-blue);
+      border-color: var(--tech-blue);
+    }
+
+    .page-link {
+      color: var(--tech-blue);
+    }
+
+    .page-link:hover {
+      color: var(--tech-dark-blue);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #sidebar {
+        margin-left: -250px;
+      }
+
+      .main-content {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      #sidebar.active {
+        margin-left: 0;
+      }
+
+      .main-content.active {
+        width: calc(100% - 250px);
+        margin-left: 250px;
+      }
+
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .btn-group .btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script>
+    // Sidebar toggle
+    document.getElementById('sidebarCollapse').addEventListener('click', function () {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.querySelector('.main-content').classList.toggle('active');
+    });
+
+  </script>
+</main>
