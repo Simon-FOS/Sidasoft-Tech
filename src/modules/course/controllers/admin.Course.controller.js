@@ -56,6 +56,14 @@ export const create = async (req, res) => {
 export const update = async (req, res) => {
   try {
 
+    //get request files
+    const files = req.files;
+    if (files && files.length > 0) {
+      // Assuming only one file is uploaded for image_url
+      req.body.image_url = files[0].path; // or files[0].filename based on your storage setup
+
+    }
+
     const data = await service.update(req.params.id, req.body);
     res.status(200).json({ success: true, message: 'Updated successfully', redirectTo: '/admin/course/' + req.params.id, });
   } catch (err) {
