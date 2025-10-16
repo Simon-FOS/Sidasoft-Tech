@@ -1,4 +1,5 @@
 import * as service from '../services/admin.Course.service.js';
+import * as categoryService from '../../category/services/admin.Category.service.js';
 
 export const findAll = async (req, res) => {
   const { page, limit, offset } = req.pagination
@@ -22,11 +23,14 @@ export const findAll = async (req, res) => {
 export const findById = async (req, res) => {
   try {
     const data = await service.findById(req.params.id);
+    const categories = await categoryService.findAll({ limit: 100, offset: 0 });
+
     res.status(200).render('./admins/course_update', {
       success: true,
       layout: "admin",
       pageTitle: "Update Record",
       course: data,
+      categories: categories.categories
     });
   } catch (err) {
     console.log(err)
@@ -46,6 +50,9 @@ export const create = async (req, res) => {
     }
 
     const data = await service.create(req.body);
+
+    data.setCategories(req.body.category_id); // Assuming categories is an array of category IDs
+
     res.status(201).json({ success: true, message: 'Created successfully', data, redirectTo: '/admin/course' });
   } catch (err) {
     console.log(err)
@@ -65,6 +72,8 @@ export const update = async (req, res) => {
     }
 
     const data = await service.update(req.params.id, req.body);
+
+    data.setCategories(req.body.category_id); // Assuming categories is an array of category IDs
     res.status(200).json({ success: true, message: 'Updated successfully', redirectTo: '/admin/course/' + req.params.id, });
   } catch (err) {
     console.log(err)
@@ -74,7 +83,11 @@ export const update = async (req, res) => {
 
 export const destroy = async (req, res) => {
   try {
+    const courseCategory = await service.findById(req.params.id);
+    courseCategory.setCategories([]); // Remove all associations
     const data = await service.destroy(req.params.id);
+
+
     res.status(200).json({ success: true, message: 'Deleted successfully', redirectTo: '/admin/course' });
   } catch (err) {
     console.log(err)
@@ -84,9 +97,11 @@ export const destroy = async (req, res) => {
 
 export const renderCreate = async (req, res) => {
   try {
+    const categories = await categoryService.findAll({ limit: 100, offset: 0 });
     res.status(200).render('./admins/course_create', {
       pageTitle: "Create Course",
-      layout: "admin"
+      layout: "admin",
+      categories: categories.categories
     });
   } catch (err) {
     console.log(err)

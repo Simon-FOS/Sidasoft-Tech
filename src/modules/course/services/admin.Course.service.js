@@ -7,6 +7,7 @@ import cloudinary from '../../../config/cloudinaryConfig.js';
 export const findAll = async ({ limit, offset }) => {
   try {
     const { rows: courses, count: totalItems } = await db.Course.findAndCountAll({
+      include: [{ model: db.Category, as: 'categories', attributes: ['id', 'name'], through: { attributes: [] } }],
       limit,
       offset,
       distinct: true,
@@ -25,7 +26,9 @@ export const findAll = async ({ limit, offset }) => {
 
 export const findById = async (id) => {
   try {
-    const item = await db.Course.findByPk(id);
+    const item = await db.Course.findByPk(id, {
+      include: [{ model: db.Category, as: 'categories', attributes: ['id', 'name'], through: { attributes: [] } }]
+    });
     if (!item) throw new Error('Not found');
     return item;
   } catch (error) {

@@ -46,23 +46,33 @@
             </div>
           </div>
           <div class="form-group">
-            <input type="file" accept="image/*" name="image_url" class="form-control form-control-user mb-3 py-2"
-              id="image_url" placeholder="image">
+            <select name="category_id" class="form-control form-control-user mb-3 py-2" id="category_id" required>
+              <option value="" disabled selected>Select Category</option>
+              {{#each categories}}
+              <option value="{{this.id}}">{{this.name}}</option>
+              {{/each}}
+            </select>
             <div class="invalid-feedback">
-              Image is required
+              Category is required
             </div>
-          </div>
-          <hr>
-          <ul id="error" class="text-danger col-12"></ul>
+            <div class="form-group">
+              <input type="file" accept="image/*" name="image_url" class="form-control form-control-user mb-3 py-2"
+                id="image_url" placeholder="image">
+              <div class="invalid-feedback">
+                Image is required
+              </div>
+            </div>
+            <hr>
+            <ul id="error" class="text-danger col-12"></ul>
 
-          <div class="spinner-border col-12 d-none" id="status" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-          <progress id="progressBar" style="display: none;"></progress>
-          <button type="submit" id="btn" class="btn btn-primary btn-user btn-block col-12">
-            Create Course
-          </button>
-          <hr>
+            <div class="spinner-border col-12 d-none" id="status" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <progress id="progressBar" style="display: none;"></progress>
+            <button type="submit" id="btn" class="btn btn-primary btn-user btn-block col-12">
+              Create Course
+            </button>
+            <hr>
         </form>
       </div>
     </div>
