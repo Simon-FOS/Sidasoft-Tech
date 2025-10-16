@@ -14,7 +14,9 @@
           <img src="{{this.image_url}}" class="card-img-top" alt="{{this.title}}">
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
-              <span class="badge bg-primary">Beginner</span>
+              {{#each this.categories}}
+              <span class="badge bg-primary">{{this.name}}</span>
+              {{/each}}
               <span><i class="far fa-clock me-1"></i> {{this.duration}} weeks</span>
 
             </div>
