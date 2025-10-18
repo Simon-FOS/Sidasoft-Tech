@@ -68,27 +68,30 @@
                 <div class="card border-0 shadow h-100">
                     <div class="card-body p-4">
                         <h3 class="card-title mb-4">Send Us a Message</h3>
-                        <form>
+                        <form id="contactForm" method="POST" action="/contact" class="needs-validation" novalidate>
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label for="firstName" class="form-label">First Name *</label>
-                                    <input type="text" class="form-control form-control-c" id="firstName" required>
+                                    <input name="first_name" type="text" class="form-control form-control-c"
+                                        id="firstName" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="lastName" class="form-label">Last Name *</label>
-                                    <input type="text" class="form-control form-control-c" id="lastName" required>
+                                    <input name="last_name" type="text" class="form-control form-control-c"
+                                        id="lastName" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email" class="form-label">Email Address *</label>
-                                    <input type="email" class="form-control form-control-c" id="email" required>
+                                    <input name="email" type="email" class="form-control form-control-c" id="email"
+                                        required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control form-control-c" id="phone">
+                                    <input name="phone" type="tel" class="form-control form-control-c" id="phone">
                                 </div>
                                 <div class="col-12">
                                     <label for="subject" class="form-label">Subject *</label>
-                                    <select class="form-select form-control-c" id="subject" required>
+                                    <select name="subject" class="form-select form-control-c" id="subject" required>
                                         <option value="" selected disabled>Select a subject</option>
                                         <option value="general">General Inquiry</option>
                                         <option value="admission">Admission Information</option>
@@ -100,7 +103,7 @@
                                 </div>
                                 <div class="col-12">
                                     <label for="message" class="form-label">Message *</label>
-                                    <textarea class="form-control form-control-c" id="message" rows="5"
+                                    <textarea name="message" class="form-control form-control-c" id="message" rows="5"
                                         required></textarea>
                                 </div>
                                 <div class="col-12">
@@ -120,3 +123,5 @@
         </div>
     </div>
 </section>
+
+<script type="module" src="/assets/js/form-handler.js"></script>

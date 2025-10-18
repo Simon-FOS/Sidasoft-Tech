@@ -4,7 +4,8 @@ import {
     about_view,
     contact_view,
     terms_of_service,
-    privacy_policy
+    privacy_policy,
+    create_contact_form
 } from "../controllers/root.controller.js";
 import { dashboard_view } from "../controllers/admin.controller.js";
 
@@ -14,6 +15,7 @@ const router = Router();
 router.get('/', index_view);
 router.get('/about', about_view);
 router.get('/contact', contact_view)
+router.post('/contact', create_contact_form)
 router.get('/privacy-policy', privacy_policy)
 router.get('/terms-of-service', terms_of_service)
 
