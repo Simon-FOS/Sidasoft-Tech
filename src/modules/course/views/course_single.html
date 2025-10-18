@@ -7,15 +7,13 @@
         <div class="col-lg-8">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="/courses" class="text-white-50">Courses</a></li>
-              <li class="breadcrumb-item"><a href="/courses/web-development" class="text-white-50">Web Development</a>
-              </li>
+              <li class="breadcrumb-item"><a href="/course" class="text-white-50">Courses</a></li>
+
               <li class="breadcrumb-item active text-white" aria-current="page">{{course.title}}</li>
             </ol>
           </nav>
           <h1 class="display-4 fw-bold mb-3">{{course.title}}</h1>
-          <p class="lead mb-4">Master advanced web development concepts and build real-world applications with industry
-            experts</p>
+          <p class="lead mb-4">{{{truncateHTML course.description 30}}}</p>
 
           <div class="course-meta d-flex flex-wrap gap-3 align-items-center">
             <div class="d-flex align-items-center">
@@ -84,109 +82,39 @@
   <section class="course-content py-5">
     <div class="container">
       <div class="row">
-        <!-- Main Content -->
         <div class="col-lg-8">
-          <!-- What You'll Learn -->
+          <!-- Course Description -->
           <div class="card mb-4">
             <div class="card-body">
-              <h3 class="card-title mb-4">What You'll Learn</h3>
-              <div class="row">
-                <div class="col-md-6">
-                  <ul class="list-unstyled">
-                    <li class="mb-3">
-                      <i class="fas fa-check text-success me-2"></i>
-                      Build modern web applications with React and Node.js
-                    </li>
-                    <li class="mb-3">
-                      <i class="fas fa-check text-success me-2"></i>
-                      Master advanced JavaScript concepts and ES6+ features
-                    </li>
-                    <li class="mb-3">
-                      <i class="fas fa-check text-success me-2"></i>
-                      Create RESTful APIs and handle database operations
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6">
-                  <ul class="list-unstyled">
-                    <li class="mb-3">
-                      <i class="fas fa-check text-success me-2"></i>
-                      Deploy applications to cloud platforms
-                    </li>
-                    <li class="mb-3">
-                      <i class="fas fa-check text-success me-2"></i>
-                      Implement authentication and authorization
-                    </li>
-                    <li class="mb-3">
-                      <i class="fas fa-check text-success me-2"></i>
-                      Work with modern development tools and workflows
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <h3 class="card-title mb-3">Course Description</h3>
+              <p>{{course.description}}</p>
             </div>
           </div>
 
-          <!-- Course Curriculum -->
+          <!-- Curriculum -->
           <div class="card mb-4">
             <div class="card-body">
-              <h3 class="card-title mb-4">Course Curriculum</h3>
-              <div class="accordion" id="courseAccordion">
+              <h3 class="card-title mb-3">Curriculum</h3>
+              <div class="accordion" id="curriculumAccordion">
+                <!-- Accordion Item 1 -->
                 <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#module1">
-                      Module 1: Advanced JavaScript (2 weeks)
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Introduction to Web Development
                     </button>
                   </h2>
-                  <div id="module1" class="accordion-collapse collapse show" data-bs-parent="#courseAccordion">
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#curriculumAccordion">
                     <div class="accordion-body">
-                      <div class="lesson-item d-flex justify-content-between align-items-center py-2">
-                        <div>
-                          <i class="fas fa-play-circle text-primary me-2"></i>
-                          <span>ES6+ Features and Syntax</span>
-                        </div>
-                        <span class="text-muted">45 min</span>
+                      <div class="lesson-item d-flex justify-content-between align-items-center">
+                        <span>Lesson 1: HTML Basics</span>
+                        <span>10:30</span>
                       </div>
-                      <div class="lesson-item d-flex justify-content-between align-items-center py-2">
-                        <div>
-                          <i class="fas fa-play-circle text-primary me-2"></i>
-                          <span>Functional Programming</span>
-                        </div>
-                        <span class="text-muted">60 min</span>
+                      <div class="lesson-item d-flex justify-content-between align-items-center">
+                        <span>Lesson 2: CSS Fundamentals</span>
+                        <span>12:45</span>
                       </div>
-                      <div class="lesson-item d-flex justify-content-between align-items-center py-2">
-                        <div>
-                          <i class="fas fa-file-alt text-info me-2"></i>
-                          <span>Practice Exercise</span>
-                        </div>
-                        <span class="text-muted">30 min</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#module2">
-                      Module 2: React Fundamentals (3 weeks)
-                    </button>
-                  </h2>
-                  <div id="module2" class="accordion-collapse collapse" data-bs-parent="#courseAccordion">
-                    <div class="accordion-body">
-                      <!-- Module content would go here -->
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#module3">
-                      Module 3: Backend Development (4 weeks)
-                    </button>
-                  </h2>
-                  <div id="module3" class="accordion-collapse collapse" data-bs-parent="#courseAccordion">
-                    <div class="accordion-body">
-                      <!-- Module content would go here -->
                     </div>
                   </div>
                 </div>
@@ -194,210 +122,8 @@
             </div>
           </div>
 
-          <!-- Instructor Section -->
-          <div class="card mb-4">
-            <div class="card-body">
-              <h3 class="card-title mb-4">About the Instructor</h3>
-              <div class="row align-items-center">
-                <div class="col-md-3 text-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-                    alt="Sarah Johnson" class="instructor-img rounded-circle mb-3">
-                </div>
-                <div class="col-md-9">
-                  <h4>Sarah Johnson</h4>
-                  <p class="text-muted mb-3">Senior Full-Stack Developer & Instructor</p>
-                  <div class="instructor-stats d-flex gap-4 mb-3">
-                    <div>
-                      <strong>4.8</strong>
-                      <div class="text-warning">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <small class="text-muted">Instructor Rating</small>
-                    </div>
-                    <div>
-                      <strong>12,450</strong>
-                      <div class="text-muted">
-                        <i class="fas fa-users"></i>
-                      </div>
-                      <small class="text-muted">Students</small>
-                    </div>
-                    <div>
-                      <strong>8</strong>
-                      <div class="text-muted">
-                        <i class="fas fa-play-circle"></i>
-                      </div>
-                      <small class="text-muted">Courses</small>
-                    </div>
-                  </div>
-                  <p class="instructor-bio">
-                    With over 8 years of experience in web development, Sarah has worked with major tech companies
-                    and startups. She specializes in JavaScript frameworks and loves sharing her knowledge with
-                    aspiring developers.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Reviews Section -->
-          <div class="card">
-            <div class="card-body">
-              <h3 class="card-title mb-4">Student Reviews</h3>
-              <div class="row mb-4">
-                <div class="col-md-4 text-center">
-                  <div class="display-4 fw-bold text-primary">4.8</div>
-                  <div class="text-warning mb-2">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                  </div>
-                  <small class="text-muted">Course Rating • 1,240 reviews</small>
-                </div>
-                <div class="col-md-8">
-                  <!-- Rating distribution would go here -->
-                </div>
-              </div>
-
-              <!-- Review Items -->
-              <div class="review-item mb-4">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                  <div>
-                    <strong>Michael Chen</strong>
-                    <div class="text-warning">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                  </div>
-                  <small class="text-muted">2 weeks ago</small>
-                </div>
-                <p class="mb-0">
-                  This course completely transformed my career! The projects were challenging but extremely rewarding.
-                  Sarah explains complex concepts in a way that's easy to understand.
-                </p>
-              </div>
-
-              <div class="review-item">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                  <div>
-                    <strong>Emily Rodriguez</strong>
-                    <div class="text-warning">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                  </div>
-                  <small class="text-muted">1 month ago</small>
-                </div>
-                <p class="mb-0">
-                  The hands-on projects and real-world examples made all the difference. I went from basics to building
-                  full-stack applications in just 3 months!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="col-lg-4">
-          <!-- Course Features Card -->
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title mb-3">This course includes:</h5>
-              <div class="feature-list">
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="fas fa-play-circle text-primary me-3"></i>
-                  <span>45 hours on-demand video</span>
-                </div>
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="fas fa-file-text text-primary me-3"></i>
-                  <span>12 articles and resources</span>
-                </div>
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="fas fa-download text-primary me-3"></i>
-                  <span>Downloadable resources</span>
-                </div>
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="fas fa-infinity text-primary me-3"></i>
-                  <span>Full lifetime access</span>
-                </div>
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="fas fa-mobile-alt text-primary me-3"></i>
-                  <span>Access on mobile and TV</span>
-                </div>
-                <div class="feature-item d-flex align-items-center mb-3">
-                  <i class="fas fa-trophy text-primary me-3"></i>
-                  <span>Certificate of completion</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Share Course -->
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title mb-3">Share this course</h5>
-              <div class="social-share d-flex gap-2">
-                <button class="btn btn-outline-primary btn-sm">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-                <button class="btn btn-outline-info btn-sm">
-                  <i class="fab fa-twitter"></i>
-                </button>
-                <button class="btn btn-outline-danger btn-sm">
-                  <i class="fab fa-linkedin-in"></i>
-                </button>
-                <button class="btn btn-outline-success btn-sm">
-                  <i class="fab fa-whatsapp"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Related Courses -->
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title mb-3">Students also bought</h5>
-              <div class="related-course mb-3">
-                <div class="d-flex align-items-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                    alt="React Course" class="related-course-img rounded me-3">
-                  <div>
-                    <h6 class="mb-1">React Masterclass</h6>
-                    <small class="text-muted">12 weeks • 4.9 ★</small>
-                    <div class="text-primary fw-bold">$249</div>
-                  </div>
-                </div>
-              </div>
-              <div class="related-course">
-                <div class="d-flex align-items-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                    alt="Node.js Course" class="related-course-img rounded me-3">
-                  <div>
-                    <h6 class="mb-1">Node.js Backend Development</h6>
-                    <small class="text-muted">10 weeks • 4.8 ★</small>
-                    <div class="text-primary fw-bold">$229</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
   </section>
 
 
@@ -537,10 +263,5 @@
     }
   </style>
 
-  <script>
-    // Initialize Bootstrap components
-    var accordion = new bootstrap.Collapse(document.getElementById('module1'), {
-      toggle: false
-    });
-  </script>
+
 </main>
