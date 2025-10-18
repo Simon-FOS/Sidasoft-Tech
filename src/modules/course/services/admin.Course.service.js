@@ -95,3 +95,15 @@ export const destroy = async (id) => {
     throw new Error('Error deleting record: ' + error.message);
   }
 };
+
+// Additional service functions can be added here as needed.
+//total courses
+export const countCourses = async () => {
+  try {
+    const total = await db.Course.count();
+    return total;
+  } catch (error) {
+    console.log(error)
+    throw new Error('Error counting courses: ' + error.message);
+  }
+};
